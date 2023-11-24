@@ -11,7 +11,9 @@ import 'package:line_icons/line_icons.dart';
 import 'package:pinput/pinput.dart';
 import 'package:vmenu_reports/Colours.dart';
 import 'package:vmenu_reports/Fonts.dart';
-import 'package:vmenu_reports/WidgetPlugin/Cardchart/cardchart_view.dart';
+import 'package:vmenu_reports/WidgetPlugin/Cardchart1/cardchart1_controller.dart';
+import 'package:vmenu_reports/WidgetPlugin/Cardchart1/cardchart1_view.dart';
+import 'package:vmenu_reports/WidgetPlugin/Cardchart1/model_cardchart_model.dart';
 import 'package:vmenu_reports/WidgetPlugin/LineChart/linechart_controller.dart';
 import 'package:vmenu_reports/WidgetPlugin/LineChart/linechart_view.dart';
 import 'package:vmenu_reports/WidgetPlugin/LineChart/model_linechart_model.dart';
@@ -51,8 +53,8 @@ class LoginView extends GetResponsiveView<LoginController> {
             // contentPadding: EdgeInsets.only(top: 10.0),
             child: SafeArea(
               child: Container(
-                width: 340,
-                height: 300,
+                width: 360,
+                height: 330,
                 child: Column(
                   children: [
                     Padding(
@@ -161,7 +163,7 @@ class LoginView extends GetResponsiveView<LoginController> {
                                 }
                               },
                               obscureText:
-                                  LoginController().passwordVisible.value,
+                                  LoginController.passwordVisible.value,
                               autofocus: true,
                               onTap: () {
                                 LoginController
@@ -199,7 +201,7 @@ class LoginView extends GetResponsiveView<LoginController> {
                                 )),
                                 suffixIcon: IconButton(
                                   icon: Icon(
-                                    LoginController().passwordVisible.value ==
+                                    LoginController.passwordVisible.value ==
                                             true
                                         ? Icons.visibility_off
                                         : Icons.visibility,
@@ -207,16 +209,12 @@ class LoginView extends GetResponsiveView<LoginController> {
                                     color: Colors.black,
                                   ),
                                   onPressed: () {
-                                    LoginController().passwordVisible.value =
-                                        !LoginController()
-                                            .passwordVisible
-                                            .value;
-                                    print(LoginController()
-                                        .passwordVisible
-                                        .value);
-                                    print(!LoginController()
-                                        .passwordVisible
-                                        .value);
+                                    LoginController.passwordVisible.value =
+                                        !LoginController.passwordVisible.value;
+                                    print(
+                                        LoginController.passwordVisible.value);
+                                    print(
+                                        !LoginController.passwordVisible.value);
                                   },
                                 ),
                               ),
@@ -588,108 +586,172 @@ class Mobile extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
-        body:
-         Center(child:  Wrap(
-           children: [
-             InformationRow(),
-           ],
-         )
-        //   piechartcontroller.Getdata(
-        //         modelpichart: ModelPieChart(
-        //             widgetData: WidgetData(
-        //                 title: "Office",
-        //                 titleFontsize: 14.0,
-        //                 subtitle: "good",
-        //                 subtitleFontsize: 10.0,
-        //                 percentage: "70",
-        //                 percentageFontsize: 16.0,
-        //                 piechartRadius: 100.0,
-        //                 pichartSectionlist: [
-        //   PichartSectionlist(
-        //       color: "#006400",
-        //       radius: 25.0,
-        //       touchedRadius: 35.0,
-        //       showtitle: true,
-        //       value: 10,
-        //       valueColor:"#FFFFFF" ,
-        //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
-        //       color: "FF0000",
-        //       radius: 25.0,
-        //       touchedRadius: 35.0,
-        //       showtitle: true,
-        //       value: 50,
-        //       valueColor: "#FFFFFF",
-        //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
-        //       color: "#00008B",
-        //       radius: 25.0,
-        //       touchedRadius: 35.0,
-        //       showtitle: true,
-        //       value: 20,
-        //       valueColor: "#FFFFFF",
-        //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
-        //       color: "#FFFF00",
-        //       radius: 25.0,
-        //       touchedRadius: 35.0,
-        //       showtitle: true,
-        //       value: 20,
-        //       valueColor: "#000000",
-        //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0))
-        // ]))) 
-            //  linechart_controller.Getdata(
-            //     modellinechart: ModelLinechart(
-            //         linechartdata: Linechartdata(
-            //             lefttileTitle: "AVG",
-            //             lefttiletitleFontsize: 14.0,
-            //             gradientcolors: [
-            //               Gradientcolors(color: "0xff1458E1"),
-            //               Gradientcolors(color: "0xffF9443A"),
-            //               Gradientcolors(color: "0xff1458E1"),
-            //               Gradientcolors(color: "0xffF9443A")
-            //             ],
-            //             bottomtileNames: [
-            //               BottomtileNames(names: "Jan"),
-            //               BottomtileNames(names: "april"),
-            //               BottomtileNames(names: "feb"),
-            //               BottomtileNames(names: "aug")
-            //             ],
-            //             bottomtilenamesProperty: BottomtilenamesProperty(
-            //                 color: "#FFFFFF",
-            //                 fontsize: 12,
-            //                 interval: 1,
-            //                 reservedsize: 24,
-            //                 showtilename: true),
-            //             lefttileNames: [
-            //               BottomtileNames(names: "20k"),
-            //               BottomtileNames(names: "50k")
-            //             ],
-            //             lefttilenamesProperty: BottomtilenamesProperty(
-            //                 color: "#FFFFFF",
-            //                 fontsize: 12.0,
-            //                 interval: 1,
-            //                 reservedsize: 24,
-            //                 showtilename: true),
-            //             flgriddata: Flgriddata(
-            //                 dotdata: false,
-            //                 horizontallineInterval: 1,
-            //                 isCurved: true,
-            //                 maxX: 8,
-            //                 minX: 0,
-            //                 maxY: 10,
-            //                 minY: 0,
-            //                 showHorizontallines: true,
-            //                 showVerticlelines: true,
-            //                 showLines: true,
-            //                 verticlelineInterval: 1,
-            //                 linechartbardata: [
-            //                   Linechartbardata(spot1: 0, spot2: 3),
-            //                   Linechartbardata(spot1: 2, spot2: 2),
-            //                   Linechartbardata(spot1: 4, spot2: 5),
-            //                   Linechartbardata(spot1: 6, spot2: 3),
-            //                   Linechartbardata(spot1: 8, spot2: 4),
-            //                   Linechartbardata(spot1: 9, spot2: 3),
-            //                   Linechartbardata(spot1: 11, spot2: 5)
-            //                 ]))))
-                            ));
+        body:  SafeArea(
+          child: 
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Row(
+          //     children: [
+          //       cardchart1_controller.Getdata(
+          //           modelcardchart: ModelCardchart(
+          //               cardchartData: CardchartData(
+          //                   spacing: 2,
+          //                   runspacing: 1,
+          //                   iconCircleavatar:
+          //                       IconCircleavatar(color: "#FFFFFF", radius: 15),
+          //                   cardHeight: 80,
+          //                   cardWidth: 180,
+          //                   cardBackgrndclr:"#FFFFFF" ,
+          //                   cardData: [
+          //             CardData(
+          //                 title: "12345",
+          //                 icon: "assets/images/download.png",
+          //                 iconColor: "#FFFFFF",
+          //                 percentage: Percentage(
+          //                     decreaseIncrease: true,
+          //                     showtitlePercentage: true,
+          //                     value: 50,
+          //                     valueFontsize: 8),
+          //                 showPercentage: true,
+          //                 subtitle: "perfect",
+          //                 subtitleColor: "#000000",
+          //                 subtitleFontsize: 12,
+          //                 titleColor: "#000000",
+          //                 titleFontsize: 14),
+          //                    CardData(
+          //                 title: "100",
+          //                 icon: "assets/images/images.png",
+          //                 iconColor: "0xFFFF3EF4",
+          //                 percentage: Percentage(
+          //                     decreaseIncrease: true,
+          //                     showtitlePercentage: true,
+          //                     value: 23,
+          //                     valueFontsize: 8),
+          //                 showPercentage: true,
+          //                 subtitle: "perfect",
+          //                 subtitleColor: "#000000",
+          //                 subtitleFontsize: 12,
+          //                 titleColor: "#000000",
+          //                 titleFontsize: 14),
+          //                    CardData(
+          //                 title: "45",
+          //                 icon: "assets/images/bell.png",
+          //                 iconColor: "#000000",
+          //                 percentage: Percentage(
+          //                     decreaseIncrease: true,
+          //                     showtitlePercentage: true,
+          //                     value: 10,
+          //                     valueFontsize: 8),
+          //                 showPercentage: true,
+          //                 subtitle: "perfect",
+          //                 subtitleColor: "#000000",
+          //                 subtitleFontsize: 12,
+          //                 titleColor: "#000000",
+          //                 titleFontsize: 14),
+          //           ])))
+          //       //  cardchart1(),
+          //     ],
+          //   ),
+          // ),
+        
+            //   piechartcontroller.Getdata(
+            //         modelpichart: ModelPieChart(
+            //             widgetData: WidgetData(
+            //                 title: "Office",
+            //                 titleFontsize: 14.0,
+            //                 subtitle: "good",
+            //                 subtitleFontsize: 10.0,
+            //                 percentage: "70",
+            //                 percentageFontsize: 16.0,
+            //                 piechartRadius: 100.0,
+            //                 pichartSectionlist: [
+            //   PichartSectionlist(
+            //       color: "#006400",
+            //       radius: 25.0,
+            //       touchedRadius: 35.0,
+            //       showtitle: true,
+            //       value: 10,
+            //       valueColor:"#FFFFFF" ,
+            //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
+            //       color: "FF0000",
+            //       radius: 25.0,
+            //       touchedRadius: 35.0,
+            //       showtitle: true,
+            //       value: 50,
+            //       valueColor: "#FFFFFF",
+            //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
+            //       color: "#00008B",
+            //       radius: 25.0,
+            //       touchedRadius: 35.0,
+            //       showtitle: true,
+            //       value: 20,
+            //       valueColor: "#FFFFFF",
+            //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0)), PichartSectionlist(
+            //       color: "#FFFF00",
+            //       radius: 25.0,
+            //       touchedRadius: 35.0,
+            //       showtitle: true,
+            //       value: 20,
+            //       valueColor: "#000000",
+            //       borderside: Borderside(color: "0xFFFF3EF4", width: 4.0))
+            // ])))
+             linechart_controller.Getdata(
+                modellinechart: ModelLinechart(
+                    linechartdata: Linechartdata(
+                        lefttileTitle: "AVG",
+                        lefttiletitleFontsize: 14.0,
+                        gradientcolors: [
+                          Gradientcolors(color: "0xff1458E1"),
+                          Gradientcolors(color: "0xffF9443A"),
+                          Gradientcolors(color: "0xff1458E1"),
+                          Gradientcolors(color: "0xffF9443A")
+                        ],
+                        bottomtileNames: [
+                          BottomtileNames(names: "mon"),
+                          BottomtileNames(names: "thu"),
+                          BottomtileNames(names: "sat"),
+                          BottomtileNames(names: "wed"),
+                          BottomtileNames(names: "sun"),
+                          BottomtileNames(names: "tue"),
+                        ],
+                        bottomtilenamesProperty: BottomtilenamesProperty(
+                            color: "#FFFFFF",
+                            fontsize: 12,
+                            interval: 1,
+                            reservedsize: 24,
+                            showtilename: true),
+                        lefttileNames: [
+                          BottomtileNames(names: "20k"),
+                          BottomtileNames(names: "50k")
+                        ],
+                        lefttilenamesProperty: BottomtilenamesProperty(
+                            color: "#FFFFFF",
+                            fontsize: 12.0,
+                            interval: 1,
+                            reservedsize: 24,
+                            showtilename: true),
+                        flgriddata: Flgriddata(
+                            dotdata: false,
+                            horizontallineInterval: 1,
+                            isCurved: true,
+                            maxX: 8,
+                            minX: 0,
+                            maxY: 10,
+                            minY: 0,
+                            showHorizontallines: true,
+                            showVerticlelines: true,
+                            showLines: true,
+                            verticlelineInterval: 1,
+                            linechartbardata: [
+                              Linechartbardata(spot1: 0, spot2: 3),
+                              Linechartbardata(spot1: 2, spot2: 2),
+                              Linechartbardata(spot1: 4, spot2: 5),
+                              Linechartbardata(spot1: 6, spot2: 3),
+                              Linechartbardata(spot1: 8, spot2: 4),
+                              Linechartbardata(spot1: 9, spot2: 3),
+                              Linechartbardata(spot1: 11, spot2: 5)
+                            ]))))
+            ));
   }
 }
 
@@ -780,7 +842,7 @@ class Mobile extends GetView<LoginController> {
 //                   }
 //                 },
 //                 pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-              
+
 //               hapticFeedbackType: HapticFeedbackType.lightImpact,
 //             ),
 //           )
@@ -789,7 +851,6 @@ class Mobile extends GetView<LoginController> {
 //         );
 //   }
 // }
-
 
 //   Future First_signupDialogue() async {
 //     LoginController controller=Get.find();
@@ -864,5 +925,3 @@ class Mobile extends GetView<LoginController> {
 //                       ),
 //                     ),),);});
 // }
-  
-

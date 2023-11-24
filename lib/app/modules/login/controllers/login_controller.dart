@@ -15,7 +15,7 @@ class LoginController extends GetxController {
 txt_pinno_controller = TextEditingController(),
   txt_pinno2_controller = TextEditingController(),
   txt_verification_pinno_controller = TextEditingController();
-  var passwordVisible = true.obs;
+ static var passwordVisible = true.obs;
   var validation_pin;
   @override
   void onInit() {

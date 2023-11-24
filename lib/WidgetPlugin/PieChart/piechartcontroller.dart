@@ -12,8 +12,4 @@ class piechartcontroller extends GetxController{
    return  Piechart_widget().build(Get.context!);
    
  }
-// get(){
-//   print(touchedIndex.value);
-// }
-
 }

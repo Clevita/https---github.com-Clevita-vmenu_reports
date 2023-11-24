@@ -1,0 +1,39 @@
+{"linechartdata":{
+    "gradientcolors":[{"color":""}],
+    "lefttile_title":"",
+    "lefttiletitle_fontsize":0.0,
+    "bottomtile_names":[{"names":""}],
+    "bottomtilenames_property":{
+         "color":"",
+         "fontsize":0.0,
+         "showtilename":true,
+         "reservedsize":30,
+         "interval":1
+  },
+  "lefttile_names":[{"names":""}],
+  "lefttilenames_property":{
+         "color":"",
+         "fontsize":0.0,
+         "showtilename":true,
+         "reservedsize":30,
+         "interval":1
+  },
+  "flgriddata":{
+       "show_lines":true,
+       "show_horizontallines":true,
+       "show_verticlelines":true,
+       "horizontalline_interval":1,
+       "verticleline_interval":1,
+       "max_x":11,
+       "min_x":0,
+       "max_y":6,
+       "min_y":0,
+       "linechartbardata":[{"spot1":0,"spot2":3}   
+  ],
+  "is_curved":true,
+  "dotdata":false
+  
+  
+  }
+} 
+  }

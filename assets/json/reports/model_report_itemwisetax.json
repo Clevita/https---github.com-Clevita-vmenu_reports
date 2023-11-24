@@ -1,0 +1,27 @@
+{
+  "report_name": "sales with tax",
+  "from_date": "01-Jan-2022",
+  "to_date": "10-Oct-2023",
+  "nettotal": 200.0,
+  "total_taxable": 4.761904761904762,
+  "shopname": "cle",
+  "shop_address": "",
+  "shop_mobileno": "436545677658",
+  "shop_gst": "",
+  "total_count": 1,
+  "list_reportdata": [
+    {
+      "date": "06 June 2023 02:15:01 PM",
+      "billno": 21,
+      "categoryname": "salad",
+      "itemname": "pappad",
+      "sectionname": "PARCEL",
+      "qty": 2.0,
+      "rate": 100.0,
+      "gsttype": "I",
+      "taxable": 4.761904761904762,
+      "tax": "INC 5%",
+      "total": 200.0
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "datainfo": [
+    {
+      "parentid": 1,
+      "shopname": "OLENE CANTO",
+      "shoplogo": "olene_canto_logo.png",
+      "sts": true,
+      "store_list": [
+        {
+          "child_rowid": 1,
+          "shopname": "CANTO TOWN",
+          "shoplogo": "olene_canto_logo.png",
+          "shopdatabase": "javaserver",
+          "sts": true,
+          "isSelected": false,
+          "last_synctime": "2023-09-19 22:34:23"
+        },
+        {
+          "child_rowid": 2,
+          "shopname": "CANTO MELAKKAM",
+          "shoplogo": "olene_canto_logo.png",
+          "shopdatabase": "javaserver_2",
+          "sts": true,
+          "isSelected": false,
+          "last_synctime": "2023-09-19 22:34:23"
+        },
+        {
+          "child_rowid": 3,
+          "shopname": "CANTO IGBT",
+          "shoplogo": "olene_canto_logo.png",
+          "shopdatabase": "javaserver",
+          "sts": true,
+          "isSelected": false,
+          "last_synctime": "2023-09-19 22:34:23"
+        },
+        {
+          "child_rowid": 7,
+          "shopname": "CANTO MANGADA",
+          "shoplogo": "olene_canto_logo.png",
+          "shopdatabase": "javaserver_2",
+          "sts": true,
+          "isSelected": false,
+          "last_synctime": "2023-09-19 22:34:23"
+        },
+        {
+          "child_rowid": 16,
+          "shopname": "CANTO HI-LITE",
+          "shoplogo": "olene_canto_logo.png",
+          "shopdatabase": "javaserver",
+          "sts": true,
+          "isSelected": false,
+          "last_synctime": "2023-09-19 22:34:23"
+        }
+      ]
+    }
+  ]
+}

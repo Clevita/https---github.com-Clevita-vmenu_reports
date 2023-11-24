@@ -1,0 +1,19 @@
+{
+	"shopname": "cle",
+	"shopmobile": "436545677658",
+	"shopaddress": "",
+	"shopgst": "",
+	"from_date": "2022-11-07",
+	"to_date": "2023-11-07",
+	"list_data": [
+	  {
+		"date": "",
+		"openingstockvalue": 0.0,
+		"purchasevalue": 400.0,
+		"closingstockvalue": 0.0,
+		"sales": 386592.0,
+		"foodcost": -386192.0,
+		"foodcostinpercentage": 0.001034682559390779
+	  }
+	]
+  }

@@ -1,0 +1,32 @@
+{"datepickerlist":[{
+    "index":0,
+    "text":"Yesturday",
+    "is_selected":true,
+    "from_date":"",
+    "to_date":""
+},{
+    "index":1,
+    "text":"Today",
+    "is_selected":false,
+    "from_date":"",
+    "to_date":""
+},{
+    "index":2,
+    "text":"Last 7 Days",
+    "is_selected":false,
+    "from_date":"",
+    "to_date":""
+},{
+    "index":3,
+    "text":"Last 30 Days",
+    "is_selected":false,
+    "from_date":"",
+    "to_date":""
+},{
+    "index":4,
+    "text":"Custome Time",
+    "is_selected":false,
+    "from_date":"",
+    "to_date":""
+}
+]}

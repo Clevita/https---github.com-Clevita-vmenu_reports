@@ -1,0 +1,129 @@
+
+{ 
+  "report_settings": [{
+  "reportbasedon": {
+    "type": "Customtime",
+    "customtime": {
+      "nextday": true,
+      "starttime": "01:10",
+      "closetime": "23:55"
+    }
+  },
+  "currency": [
+    {
+      "name": "Indian Rupee",
+      "code": "INR",
+      "position": "L",
+      "active": true
+    },
+    {
+      "name": "US Dollar",
+      "code": "USD",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Australian Dollar",
+      "code": "AUD",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Euro",
+      "code": "EUR",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Bahraini Dinar",
+      "code": "BHD",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Afghani",
+      "code": "AFN",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Kuwaiti Dinar",
+      "code": "KWD",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Pakistan Rupee",
+      "code": "PKR",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Qatari Rial",
+      "code": "QAR",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Saudi Riyal",
+      "code": "SAR",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "Singapore Dollar",
+      "code": "SGD",
+      "position": "L",
+      "active": false
+    },
+    {
+      "name": "UAE Dirham",
+      "code": "AED",
+      "position": "L",
+      "active": false
+    }
+  ],
+  "theme": {
+    "Selected_Theme": 1,
+    "1_COLOR_PRIMARY": "0xFFFF3EF4",
+    "1_COLOR_PRIMARY_TEXT": "0XFFFFFFFF",
+    "1_COLOR_SECONDARY": "0XFFFFFFFF",
+    "1_COLOR_SECONDARY_TEXT": "0xFF131515",
+    "1_COLOR_TERTIARY": "0xFF131515",
+    "1_COLOR_TERTIARY_TEXT": "0XFFFFFFFF",
+    "2_COLOR_PRIMARY": "0xFFFF3EF4",
+    "2_COLOR_PRIMARY_TEXT": "0XFFFFFFFF",
+    "2_COLOR_SECONDARY": "0XFFFFFFFF",
+    "2_COLOR_SECONDARY_TEXT": "0xFF131515",
+    "2_COLOR_TERTIARY": "0xFF131515",
+    "2_COLOR_TERTIARY_TEXT": "0XFFFFFFFF",
+    "3_COLOR_PRIMARY": "0xFFFF3EF4",
+    "3_COLOR_PRIMARY_TEXT": "0XFFFFFFFF",
+    "3_COLOR_SECONDARY": "0XFFFFFFFF",
+    "3_COLOR_SECONDARY_TEXT": "0xFF131515",
+    "3_COLOR_TERTIARY": "0xFF131515",
+    "3_COLOR_TERTIARY_TEXT": "0XFFFFFFFF",
+    "4_COLOR_PRIMARY": "0xFFFF3EF4",
+    "4_COLOR_PRIMARY_TEXT": "0XFFFFFFFF",
+    "4_COLOR_SECONDARY": "0XFFFFFFFF",
+    "4_COLOR_SECONDARY_TEXT": "0xFF131515",
+    "4_COLOR_TERTIARY": "0xFF131515",
+    "4_COLOR_TERTIARY_TEXT": "0XFFFFFFFF",
+    "5_COLOR_PRIMARY": "0xFFFF3EF4",
+    "5_COLOR_PRIMARY_TEXT": "0XFFFFFFFF",
+    "5_COLOR_SECONDARY": "0XFFFFFFFF",
+    "5_COLOR_SECONDARY_TEXT": "0xFF131515",
+    "5_COLOR_TERTIARY": "0xFF131515",
+    "5_COLOR_TERTIARY_TEXT": "0XFFFFFFFF"
+  },
+  "modules": [
+    {
+      "name": "sales report",
+      "active": true
+    },{
+      "name": "sales report",
+      "active": false
+    }]
+  
+}]
+}

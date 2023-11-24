@@ -1,0 +1,21 @@
+{"widget_data":{
+    "title":"",
+    "title_fontsize":0.0,
+    "subtitle":"",
+    "subtitle_fontsize":0.0,
+    "percentage":"",
+    "percentage_fontsize":0.0,
+    "piechart_radius":0.0,
+    "pichart_sectionlist":[{
+      "radius":0.0,
+      "touched_radius":0.0,
+      "color":"",
+      "value":20,
+      "value_color":"",
+      "showtitle":true,
+      "borderside":{
+               "width":0.0,
+               "color":""
+  }
+    }]
+  }}

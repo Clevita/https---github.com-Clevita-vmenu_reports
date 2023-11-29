@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:intl/intl.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:vmenu_reports/Constants.dart';
+import 'package:vmenu_reports/app/modules/SalesWithTax_report/controllers/sales_with_tax_report_controller.dart';
 import 'package:vmenu_reports/app/modules/login/controllers/login_controller.dart';
 import 'package:vmenu_reports/app/modules/login/views/login_view.dart';
 import 'package:vmenu_reports/app/modules/reports/login_reports/loginreports._view.dart';
@@ -183,5 +185,29 @@ class ReportsController extends GetxController {
 
     }
   }
+
+  // void SearchReports() {
+  //   if(Drawer_Module_page.value==Drawer_Modules.SALES_WITH_TAX_REPORT){
+  //     SalesWithTaxReportController controller=Get.find();
+  //       controller.GetData_SalesWithTax_report();
+  //   }else if(Drawer_Module_page.value==Drawer_Modules.FOODCOUNT_REPORT){
+
+  //   }
+    
+  // }
+
+  // void PdfReports() {
+  //    if(Drawer_Module_page.value==Drawer_Modules.SALES_WITH_TAX_REPORT){
+  //      SalesWithTaxReportController().exportDataGridToPdf();
+  //    }
+     
+  // }
+
+  // void ExcellReports() {
+  //    if(Drawer_Module_page.value==Drawer_Modules.SALES_WITH_TAX_REPORT){
+  //     SalesWithTaxReportController().exportDataGridToExcel();
+  //    }
+    
+  // }
 }
 

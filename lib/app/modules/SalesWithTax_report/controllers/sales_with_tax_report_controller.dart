@@ -34,7 +34,7 @@ class SalesWithTaxReportController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // GetData_SalesWithTax_report();
+    GetData_SalesWithTax_report();
   }
 
   @override
@@ -105,7 +105,7 @@ class SalesWithTaxReportController extends GetxController {
         lastDate: DateTime(2101));
     if (picked != null && picked != Slct_todate.value) {
       // selectdob.value = picked;
-      txt_todate_controller.text = DateFormat('dd-MMM-yyyy').format(picked);
+     txt_todate_controller.text = DateFormat('dd-MMM-yyyy').format(picked);
     }
   }
 

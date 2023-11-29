@@ -1,9 +1,9 @@
-class ModelLinechart {
+class ModelGraphChart {
   Linechartdata? linechartdata;
 
-  ModelLinechart({this.linechartdata});
+  ModelGraphChart({this.linechartdata});
 
-  ModelLinechart.fromJson(Map<String, dynamic> json) {
+  ModelGraphChart.fromJson(Map<String, dynamic> json) {
     linechartdata = json['linechartdata'] != null
         ? Linechartdata?.fromJson(json['linechartdata'])
         : null;
@@ -114,16 +114,19 @@ class Gradientcolors {
 }
 
 class BottomtileNames {
+  int? number;
   String? names;
 
-  BottomtileNames({this.names});
+  BottomtileNames({this.number, this.names});
 
   BottomtileNames.fromJson(Map<String, dynamic> json) {
+    number = json['number'];
     names = json['names'];
   }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
+    data['number'] = number;
     data['names'] = names;
     return data;
   }

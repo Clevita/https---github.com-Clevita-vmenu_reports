@@ -46,12 +46,7 @@ txt_pinno_controller = TextEditingController(),
 
    void Save_Pinnumber({required pinnumber}) async{
     if (pinnumber.length > 4||pinnumber=="") {
-      Get.snackbar(
-        "WARNING!",
-        "Pin Must Be 4 Digits",
-        backgroundColor: ColorsApp.COLOR_SECONDARY,
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      Constants.SnakeBarshow(title: "WARNING!",subtitle: "Pin Must Be 4 Digits",tost_type:Toast_types.ERROR);
     } else {
       var responce=await ReportsProvider().Encrypt_loginpin(jsondata:{"data":txt_pinno2_controller.text.toString()});
       var loginpin_value=responce['message']['encripted_data'];
@@ -85,21 +80,13 @@ txt_pinno_controller = TextEditingController(),
        validation_pin=responce['message']['decripted_data'];
    if(validation_pin==txt_verification_pinno_controller.text){
         Get.toNamed(Routes.REPORTS);
-   }else{
-     Get.snackbar(
-        "WARNING!",
-        "Mismatched Pin Number. Try Again ",
-        backgroundColor: ColorsApp.COLOR_SECONDARY,
-        snackPosition: SnackPosition.BOTTOM,
-      );
+   }
+   else{
+    Constants.SnakeBarshow(title: "Warning",subtitle: "Mismatched Pin Number. Try Again",tost_type: Toast_types.ERROR);
    } 
+  Get.toNamed(Routes.REPORTS);
     } catch (e) {
-      Get.snackbar(
-        "WARNING!",
-        "Mismatched Pin Number. Try Again ",
-        backgroundColor: ColorsApp.COLOR_SECONDARY,
-        snackPosition: SnackPosition.BOTTOM,
-      );
+     Constants.SnakeBarshow(title: "Warning",subtitle: "Mismatched Pin Number. Try Again",tost_type: Toast_types.ERROR);
     }
       
       // Get.back();

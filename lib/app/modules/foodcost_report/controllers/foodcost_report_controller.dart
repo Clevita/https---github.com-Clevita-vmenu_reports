@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 import 'package:syncfusion_flutter_datagrid_export/export.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
+import 'package:vmenu_reports/app/modules/SalesWithTax_report/controllers/sales_with_tax_report_controller.dart';
 import 'package:vmenu_reports/app/modules/foodcost_report/controllers/sfgrid_controller.dart';
 import 'package:vmenu_reports/app/modules/reports/controllers/reports_controller.dart';
 import '../../reports/model/model_reports_shopinfo_model.dart';
@@ -40,6 +41,7 @@ class FoodcostReportController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    GetData();
   }
 
   @override
@@ -67,7 +69,7 @@ class FoodcostReportController extends GetxController {
         "report_type": slct_dropdown.value,
         "from_date": DateFormat('yyyy-MM-dd').format(from_date).toString(),
         "to_date":DateFormat('yyyy-MM-dd').format(to_date).toString(),
-        "branches_dbnames": shoplist ??
+        "branches_dbnames":SalesWithTaxReportController(). shoplist ??
             {
               "shopname": reportcontroller1.model_ownerapp_shopinfodata.value!
                   .datainfo![0].storeList![0].shopname,
@@ -117,7 +119,7 @@ class FoodcostReportController extends GetxController {
         lastDate: DateTime(2101));
     if (picked != null && picked != Slct_todate.value) {
       // selectdob.value = picked;
-      txt_todate_controller.text = DateFormat('dd-MMM-yyyy').format(picked);
+    txt_todate_controller.text = DateFormat('dd-MMM-yyyy').format(picked);
     }
   }
 

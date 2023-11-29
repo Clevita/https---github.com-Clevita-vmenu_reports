@@ -121,13 +121,8 @@ class DrawerModule_view extends GetView {
                         children: [
                           IconButton(
                             onPressed: () async {
-                              // await OwnerAppController()
-                              //     .click_appsettings(controller);
-
                               await  Appsettings_Controller().Getdata_report_settings();
                               await Appsettings_Controller.ClickAppsettingsettings();
-                            // Get.toNamed(Routes.REPORT_SETTINGS);
-                            //   controller.ControlleradvancedDrawer.hideDrawer();
                             },
                             icon: Icon(
                               LineIcons.mobilePhone,
@@ -206,6 +201,7 @@ class DrawerModule_view extends GetView {
                       fontFamily: Fonts.font_Montserrat,
                       fontSize: GetPlatform.isMobile ? 12 : 17)),
               onTap: () {
+               controller. Drawer_Module_page.value=Drawer_Modules.SALES_WITH_TAX_REPORT;
                 controller.mainpage.value=false;
                   Get.toNamed(Routes.SALES_WITH_TAX_REPORT);
                   controller.ControlleradvancedDrawer.hideDrawer();
@@ -225,6 +221,7 @@ class DrawerModule_view extends GetView {
                       fontFamily: Fonts.font_Montserrat,
                       fontSize: GetPlatform.isMobile ? 12 : 17)),
               onTap: () {
+                 controller. Drawer_Module_page.value=Drawer_Modules.FOODCOUNT_REPORT;
                 controller.mainpage.value=false; 
                     Get.toNamed(Routes.FOODCOST_REPORT);
                   controller.ControlleradvancedDrawer.hideDrawer();
@@ -237,24 +234,25 @@ class DrawerModule_view extends GetView {
 
                 // ReportItemwiseTaxController.is_loading.value = false;
               },
-            ), ListTile(
-              title: Text("Store List",
-                  style: TextStyle(
-                      color: ColorsApp.COLOR_SECONDARY_TEXT,
-                      fontFamily: Fonts.font_Montserrat,
-                      fontSize: GetPlatform.isMobile ? 12 : 17)),
-              onTap: () {
-                controller.mainpage.value=false;
-                // FoodCostReport_Controller().GetData();
-                // controller.Drawer_Module_page.value =
-                //     Drawer_Modules.STORE_LIST;
-                    // ReportsView().Storelist_popup();
-                // controller.foodcost_selected.value = true;
-                controller.ControlleradvancedDrawer.hideDrawer();
+            ), 
+            // ListTile(
+            //   title: Text("Store List",
+            //       style: TextStyle(
+            //           color: ColorsApp.COLOR_SECONDARY_TEXT,
+            //           fontFamily: Fonts.font_Montserrat,
+            //           fontSize: GetPlatform.isMobile ? 12 : 17)),
+            //   onTap: () {
+            //     controller.mainpage.value=false;
+            //     // FoodCostReport_Controller().GetData();
+            //     // controller.Drawer_Module_page.value =
+            //     //     Drawer_Modules.STORE_LIST;
+            //         // ReportsView().Storelist_popup();
+            //     // controller.foodcost_selected.value = true;
+            //     controller.ControlleradvancedDrawer.hideDrawer();
 
-                // ReportItemwiseTaxController.is_loading.value = false;
-              },
-            )
+            //     // ReportItemwiseTaxController.is_loading.value = false;
+            //   },
+            // )
           ],
         ));
   }

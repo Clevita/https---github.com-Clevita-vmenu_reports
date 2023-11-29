@@ -41,30 +41,53 @@ class Desktop extends GetView<FoodcostReportController> {
    Scaffold(
       body:  Column(
         children: [
-          Constants.Appbar(),
+          Container(height: Constants.appbar_desktop_height,width: Get.width,color: ColorsApp.COLOR_PRIMARY,child:Center(child:AppbarWidgets_desktop() ,)  ),
+          // Constants.Appbar_NavigationPage(),
           Expanded(child: 
       Card(
         color: ColorsApp.COLOR_SECONDARY,
         margin: EdgeInsets.all(10),
         elevation: 10,
         child:
-            // Expanded(child: sfgrid_ReportItemwiseTax().sfgridview())
             Column(children: [
-          Container(
-            margin: EdgeInsets.only(
-              top: 35,
-            ),
-            height: 60,
-            width: Get.width,
-            child: Row(children: [
+   
+          Obx(() => 
+          controller.model_foodstock.value==null? SizedBox():
+          
+          controller.is_loading_sfgrid.value == false
+              ? Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsApp.COLOR_PRIMARY,
+                      strokeWidth: 0.7,
+                    ),
+                  ),
+                )
+              :
+              Obx(() =>controller.Sfgrid_page.value==SFGRIDS.summary?  Sfgrid_summarized_view().sfgridview(controller):Sfgrid_detailed_view().sfgridview(controller))
+      )]),
+      )),])
+   )
+   ;
+
+
+  }
+  
+  AppbarWidgets_desktop() {
+    ReportsController reportsController=Get.find();
+    return     Row(children: [  IconButton(onPressed: (){
+        reportsController.mainpage.value=true;
+        Get.back();
+      }, icon: Icon(LineIcons.angleLeft,size: 30,color: ColorsApp.COLOR_PRIMARY_TEXT,)),
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20),
+                margin: EdgeInsets.only(left: 10, right: 10),
                 height: 40,
                 width: 150,
                 child: TextFormField(
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontSize: 14,
+                        color: ColorsApp.COLOR_PRIMARY_TEXT,
                         fontFamily: Fonts.font_Montserrat),
                     textAlign: TextAlign.center,
                     onTap: () {
@@ -82,24 +105,24 @@ class Desktop extends GetView<FoodcostReportController> {
                       FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9- ]')),
                     ],
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(5.0, 1.0, 5.0, 1.0),
+                        contentPadding: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: ColorsApp.COLOR_PRIMARY)),
+                                BorderSide(color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40))),
                         labelText: "From Date".capitalize!,
                         labelStyle: TextStyle(
                             fontStyle: FontStyle.italic,
-                            color: ColorsApp.COLOR_PRIMARY,
+                            color: ColorsApp.COLOR_PRIMARY_TEXT,
                             fontFamily: Fonts.font_Montserrat,
                             fontSize: 14),
                         border: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY),
+                              BorderSide(color:ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40)),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                           width: 1,
-                          color: Colors.black,
+                          color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40),
                         )),
                         suffixIcon: IconButton(
                             onPressed: () {
@@ -108,17 +131,18 @@ class Desktop extends GetView<FoodcostReportController> {
                             },
                             icon: Icon(
                               LineIcons.calendarAlt,
-                              color: Colors.black,
+                              color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.80),
                             )))),
               ),
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20),
+                margin: EdgeInsets.only(left: 10, right: 10),
                 height: 40,
                 width: 150,
                 child: TextFormField(
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontSize: 14,
+                        color: ColorsApp.COLOR_PRIMARY_TEXT,
                         fontFamily: Fonts.font_Montserrat),
                     textAlign: TextAlign.center,
                     onTap: () {
@@ -135,24 +159,24 @@ class Desktop extends GetView<FoodcostReportController> {
                       FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9- ]')),
                     ],
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(5.0, 1.0, 5.0, 1.0),
+                        contentPadding: EdgeInsets.fromLTRB(10.0, 1.0, 5.0, 1.0),
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: ColorsApp.COLOR_PRIMARY)),
+                                BorderSide(color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40))),
                         labelText: " To Date".capitalize!,
                         labelStyle: TextStyle(
                             fontStyle: FontStyle.italic,
-                            color: ColorsApp.COLOR_PRIMARY,
+                            color: ColorsApp.COLOR_PRIMARY_TEXT,
                             fontFamily: Fonts.font_Montserrat,
                             fontSize: 14),
                         border: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY),
+                              BorderSide(color:ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40)),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                           width: 1,
-                          color: Colors.black,
+                          color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40),
                         )),
                         suffixIcon: IconButton(
                             onPressed: () {
@@ -160,12 +184,12 @@ class Desktop extends GetView<FoodcostReportController> {
                             },
                             icon: Icon(
                               LineIcons.calendarAlt,
-                              color: Colors.black,
+                              color:ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.80),
                             )))),
               ),
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20),
-                decoration: BoxDecoration(border: Border.all(),borderRadius: BorderRadius.circular(6)),
+                margin: EdgeInsets.only(left: 10, right: 10),
+                decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40)),borderRadius: BorderRadius.circular(6)),
                 height: 40,
                 width: 180,
                 child: Obx(() =>
@@ -181,19 +205,19 @@ class Desktop extends GetView<FoodcostReportController> {
                     DropdownButton<dynamic>(
                         icon: Icon(
                           LineIcons.angleDown,size: 15,
-                          color: ColorsApp.COLOR_SECONDARY_TEXT,
+                          color: ColorsApp.COLOR_PRIMARY_TEXT,
                         ),
                         isExpanded: true,
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10),
-                        dropdownColor: ColorsApp.COLOR_SECONDARY,
+                        dropdownColor: ColorsApp.COLOR_PRIMARY,
                         style: TextStyle(
                             fontFamily: Fonts.font_Montserrat,
-                            color: ColorsApp.COLOR_SECONDARY_TEXT),
+                            color: ColorsApp.COLOR_PRIMARY_TEXT),
                         borderRadius: BorderRadius.circular(10),
                         underline: SizedBox(),
                         hint: Text(
-                            controller.slct_dropdown.value),
+                            controller.slct_dropdown.value,style: TextStyle(color: ColorsApp.COLOR_PRIMARY_TEXT),),
                         // Text('Choose Outlet',style: TextStyle(color: ColorsApp.COLOR_SECONDARY_TEXT,fontSize: 14,fontFamily: Fonts.font_Montserrat),),
                         items: controller.dropdownlist
                             .map((item) {
@@ -213,8 +237,8 @@ class Desktop extends GetView<FoodcostReportController> {
                         value:
                             controller.slct_dropdown.value)),
               ), Container(
-                margin: EdgeInsets.only(left: 20, right: 20),
-                decoration: BoxDecoration(border: Border.all(),borderRadius: BorderRadius.circular(6)),
+                margin: EdgeInsets.only(left: 10, right: 10),
+                decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40)),borderRadius: BorderRadius.circular(6)),
                 height: 40,
                 width: 180,
                 child: Obx(() =>
@@ -230,19 +254,19 @@ class Desktop extends GetView<FoodcostReportController> {
                     DropdownButton<StoreList>(
                         icon: Icon(
                           LineIcons.store,size: 18,
-                          color: ColorsApp.COLOR_SECONDARY_TEXT,
+                          color: ColorsApp.COLOR_PRIMARY_TEXT,
                         ),
                         isExpanded: true,
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(2),
-                        dropdownColor: ColorsApp.COLOR_SECONDARY,
+                        dropdownColor: ColorsApp.COLOR_PRIMARY,
                         style: TextStyle(
                             fontFamily: Fonts.font_Montserrat,
-                            color: ColorsApp.COLOR_SECONDARY_TEXT),
+                            color: ColorsApp.COLOR_PRIMARY_TEXT),
                         borderRadius: BorderRadius.circular(10),
                         underline: SizedBox(),
                         hint: Text(
-                           "${reportscontroller1.model_ownerapp_shopinfodata.value!.datainfo![0].storeList![0].shopname}"),
+                           "${reportscontroller1.model_ownerapp_shopinfodata.value!.datainfo![0].storeList![0].shopname}",style: TextStyle(color: ColorsApp.COLOR_PRIMARY_TEXT),),
                         // Text('Choose Outlet',style: TextStyle(color: ColorsApp.COLOR_SECONDARY_TEXT,fontSize: 14,fontFamily: Fonts.font_Montserrat),),
                         items: reportscontroller1.model_ownerapp_shopinfodata
                             .value!.datainfo![0].storeList!
@@ -272,10 +296,10 @@ class Desktop extends GetView<FoodcostReportController> {
                   },
                   iconSize: 100,
                   color: ColorsApp.COLOR_PRIMARY,
-                  icon: Container(
+                  icon: Container(decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_PRIMARY_TEXT.withOpacity(0.40)),color: ColorsApp.COLOR_PRIMARY),
                       height: 30,
-                      width: 150,
-                      color: ColorsApp.COLOR_PRIMARY,
+                      width: 100,
+                      // color: ColorsApp.COLOR_PRIMARY,
                       child: Center(
                           child: Text(
                         "SEARCH",
@@ -297,7 +321,7 @@ class Desktop extends GetView<FoodcostReportController> {
                         },
                         icon: Icon(
                           LineIcons.pdfFileAlt,
-                          color: ColorsApp.COLOR_PRIMARY,
+                          color: ColorsApp.COLOR_PRIMARY_TEXT,
                           size: 30,
                         )),
                   ),
@@ -310,32 +334,12 @@ class Desktop extends GetView<FoodcostReportController> {
                           icon: Icon(
                             LineIcons.excelFileAlt,
                             size: 30,
-                            color: ColorsApp.COLOR_PRIMARY,
+                            color: ColorsApp.COLOR_PRIMARY_TEXT,
                           )))
                 ],
-              ))
-            ]),
-          ),
-          Obx(() => 
-          controller.model_foodstock.value==null? SizedBox():
+              ))]);
+            
           
-          controller.is_loading_sfgrid.value == false
-              ? Expanded(
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      color: ColorsApp.COLOR_PRIMARY,
-                      strokeWidth: 0.7,
-                    ),
-                  ),
-                )
-              :
-              Obx(() =>controller.Sfgrid_page.value==SFGRIDS.summary?  Sfgrid_summarized_view().sfgridview(controller):Sfgrid_detailed_view().sfgridview(controller))
-      )]),
-      )),])
-   )
-   ;
-
-
   }}
 
   class Mobile extends GetView<FoodcostReportController> {

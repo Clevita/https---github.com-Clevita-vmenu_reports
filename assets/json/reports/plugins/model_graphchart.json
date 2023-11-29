@@ -2,7 +2,7 @@
     "gradientcolors":[{"color":""}],
     "lefttile_title":"",
     "lefttiletitle_fontsize":0.0,
-    "bottomtile_names":[{"names":""}],
+    "bottomtile_names":[{"number":0,"names":""}],
     "bottomtilenames_property":{
          "color":"",
          "fontsize":0.0,
@@ -10,7 +10,7 @@
          "reservedsize":30,
          "interval":1
   },
-  "lefttile_names":[{"names":""}],
+  "lefttile_names":[{"number":0,"names":""}],
   "lefttilenames_property":{
          "color":"",
          "fontsize":0.0,

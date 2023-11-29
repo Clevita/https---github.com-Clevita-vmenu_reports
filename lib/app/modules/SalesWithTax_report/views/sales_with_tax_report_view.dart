@@ -32,26 +32,48 @@ class SalesWithTaxReportView extends GetResponsiveView<SalesWithTaxReportControl
 class Desktop extends GetView<SalesWithTaxReportController> {
   @override
   Widget build(BuildContext context) {
-   ReportsController reportscontroller1=Get.find();
     return  Scaffold(
       body:  Column(
-        children: [
-          Constants.Appbar(),
+        children: [ 
+            Container(height: Constants.appbar_desktop_height,width: Get.width,color: ColorsApp.COLOR_PRIMARY,child: appbarwidgets_desktop(),),
           Expanded(
             child: Card(
               color: ColorsApp.COLOR_SECONDARY,
               margin: const EdgeInsets.all(10),
               elevation: 10,
               child:
-                  // Expanded(child: sfgrid_ReportItemwiseTax().sfgridview())
                   Column(children: [
-                Container(
-                  margin: const EdgeInsets.only(
-                    top: 35,
-                  ),
-                  height: 60,
-                  width: Get.width,
-                  child: Row(children: [
+              
+                Obx(() => 
+                controller.model_reportitemwisetax.value!=null? 
+                controller.is_loading_sfgrid.value == false
+                    ? Expanded(
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: ColorsApp.COLOR_PRIMARY,
+                            strokeWidth: 0.7,
+                          ),
+                        ),
+                      )
+                    // ignore: prefer_const_constructors
+                    : sfgrid_ReportItemwiseTax().sfgridview(controller):SizedBox())
+              ]),
+            ),
+          ),
+        ],
+      ),
+    );
+    
+  
+  }
+  
+ Widget appbarwidgets_desktop() {
+    ReportsController reportsController=Get.find();
+    return Row( children: [
+      IconButton(onPressed: (){
+        reportsController.mainpage.value=true;
+        Get.back();
+      }, icon: Icon(LineIcons.angleLeft,size: 30,color: ColorsApp.COLOR_PRIMARY_TEXT,)),
                     Container(
                       margin: const EdgeInsets.only(left: 20, right: 20),
                       height: 40,
@@ -59,7 +81,8 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                       child: TextFormField(
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Colors.black,
+                              fontSize: 14,
+                              color: ColorsApp.COLOR_PRIMARY_TEXT,
                               fontFamily: Fonts.font_Montserrat),
                           textAlign: TextAlign.center,
                           onTap: () {
@@ -80,30 +103,30 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                               contentPadding: const EdgeInsets.fromLTRB(5.0, 1.0, 5.0, 1.0),
                               focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: ColorsApp.COLOR_PRIMARY)),
+                                      BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40))),
                               labelText: "From Date".capitalize!,
                               labelStyle: TextStyle(
                                   fontStyle: FontStyle.italic,
-                                  color: ColorsApp.COLOR_PRIMARY,
+                                  color: ColorsApp.COLOR_PRIMARY_TEXT,
                                   fontFamily: Fonts.font_Montserrat,
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY),
+                                    BorderSide(color:ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),
                               ),
-                              enabledBorder: const OutlineInputBorder(
+                              enabledBorder:  OutlineInputBorder(
                                   borderSide: BorderSide(
                                 width: 1,
-                                color: Colors.black,
+                                color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
                               )),
                               suffixIcon: IconButton(
                                   onPressed: () {
                                     controller
                                         .fromdate(Get.context!);
                                   },
-                                  icon: const Icon(
+                                  icon:  Icon(
                                     LineIcons.calendarAlt,
-                                    color: Colors.black,
+                                    color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.80),
                                   )))),
                     ),
                     Container(
@@ -113,7 +136,8 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                       child: TextFormField(
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Colors.black,
+                              fontSize: 14,
+                              color: ColorsApp.COLOR_PRIMARY_TEXT,
                               fontFamily: Fonts.font_Montserrat),
                           textAlign: TextAlign.center,
                           onTap: () {
@@ -137,34 +161,34 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                               labelText: " To Date".capitalize!,
                               labelStyle: TextStyle(
                                   fontStyle: FontStyle.italic,
-                                  color: ColorsApp.COLOR_PRIMARY,
+                                  color: ColorsApp.COLOR_PRIMARY_TEXT,
                                   fontFamily: Fonts.font_Montserrat,
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY),
+                                    BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),
                               ),
-                              enabledBorder: const OutlineInputBorder(
+                              enabledBorder:  OutlineInputBorder(
                                   borderSide: BorderSide(
                                 width: 1,
-                                color: Colors.black,
+                                color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
                               )),
                               suffixIcon: IconButton(
                                   onPressed: () {
                                     controller.todate(Get.context!);
                                   },
-                                  icon: const Icon(
+                                  icon:  Icon(
                                     LineIcons.calendarAlt,
-                                    color: Colors.black,
+                                    color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.80),
                                   )))),
                     ),
                     Container(
                       margin: const EdgeInsets.only(left: 20, right: 20),
-                      decoration: BoxDecoration(border: Border.all()),
+                      decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40))),
                       height: 40,
                     width: 180,
                       child: Obx(() =>
-                          reportscontroller1.model_ownerapp_shopinfodata.value ==
+                          reportsController.model_ownerapp_shopinfodata.value ==
                                               null
                                           ? Center(
                                               child: CircularProgressIndicator(
@@ -176,21 +200,21 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                           DropdownButton<StoreList>(
                               icon: Icon(
                                 LineIcons.hotel,
-                                color: ColorsApp.COLOR_SECONDARY_TEXT,
+                                color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
                               ),
                               isExpanded: true,
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(2),
-                              dropdownColor: ColorsApp.COLOR_SECONDARY,
+                              dropdownColor: ColorsApp.COLOR_PRIMARY,
                               style: TextStyle(
                                   fontFamily: Fonts.font_Montserrat,
-                                  color: ColorsApp.COLOR_SECONDARY_TEXT),
+                                  color: ColorsApp.COLOR_PRIMARY_TEXT),
                               borderRadius: BorderRadius.circular(10),
                               underline: const SizedBox(),
                               hint: Text(
-                                  "${reportscontroller1.model_ownerapp_shopinfodata.value!.datainfo![0].storeList![0].shopname}"),
+                                  "${reportsController.model_ownerapp_shopinfodata.value!.datainfo![0].storeList![0].shopname}",style: TextStyle(color: ColorsApp.COLOR_PRIMARY_TEXT),),
                               // Text('Choose Outlet',style: TextStyle(color: ColorsApp.COLOR_SECONDARY_TEXT,fontSize: 14,fontFamily: Fonts.font_Montserrat),),
-                              items:reportscontroller1.model_ownerapp_shopinfodata
+                              items:reportsController.model_ownerapp_shopinfodata
                                   .value!.datainfo![0].storeList!
                                   .map((item) {
                                 return DropdownMenuItem<StoreList>(
@@ -218,10 +242,10 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                         },
                         iconSize: 100,
                         color: ColorsApp.COLOR_PRIMARY,
-                        icon: Container(
+                        icon: Container(decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),color: ColorsApp.COLOR_PRIMARY),
                             height: 30,
                             width: 150,
-                            color: ColorsApp.COLOR_PRIMARY,
+                            // color: ColorsApp.COLOR_PRIMARY,
                             child: Center(
                                 child: Text(
                               "SEARCH",
@@ -243,7 +267,7 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                               },
                               icon: Icon(
                                 LineIcons.pdfFileAlt,
-                                color: ColorsApp.COLOR_PRIMARY,
+                                color: ColorsApp.COLOR_PRIMARY_TEXT,
                                 size: 30,
                               )),
                         ),
@@ -256,34 +280,15 @@ class Desktop extends GetView<SalesWithTaxReportController> {
                                 icon: Icon(
                                   LineIcons.excelFileAlt,
                                   size: 30,
-                                  color: ColorsApp.COLOR_PRIMARY,
+                                  color: ColorsApp.COLOR_PRIMARY_TEXT,
                                 )))
                       ],
                     ))
-                  ]),
-                ),
-                Obx(() => 
-                controller.model_reportitemwisetax.value!=null? 
-                controller.is_loading_sfgrid.value == false
-                    ? Expanded(
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: ColorsApp.COLOR_PRIMARY,
-                            strokeWidth: 0.7,
-                          ),
-                        ),
-                      )
-                    // ignore: prefer_const_constructors
-                    : sfgrid_ReportItemwiseTax().sfgridview(controller):SizedBox())
-              ]),
-            ),
-          ),
-        ],
-      ),
-    );
-    
+                  ]);
+  }
   
-  }}
+  
+  }
 
 
   class Mobile extends GetView<SalesWithTaxReportController> {
@@ -297,6 +302,7 @@ class Desktop extends GetView<SalesWithTaxReportController> {
         child:
             // Expanded(child: sfgrid_ReportItemwiseTax().sfgridview())
             Column(children: [
+              Container(height: Constants.appbar_mobile_height,width: Get.width, color: ColorsApp.COLOR_PRIMARY,child:appbarwidgets_mobile() ,),
           Container(
               alignment: Alignment.center,
               height: 80,
@@ -585,6 +591,11 @@ class Desktop extends GetView<SalesWithTaxReportController> {
         ]),
       ),
     );
+  }
+  
+  appbarwidgets_mobile() {
+
+
   }}
 
   class sfgrid_ReportItemwiseTax {

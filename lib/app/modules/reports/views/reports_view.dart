@@ -248,7 +248,7 @@ class Desktop extends GetView<ReportsController> {
                 )
               : Column(
                   children: [
-                    Constants.Appbar(),
+                    Constants.Appbar_dashboard(),
                     // Container(
                     //   height: Constants.appbar_desktop_height,
                     //   color: ColorsApp.COLOR_PRIMARY,
@@ -369,7 +369,7 @@ class Mobile extends GetView<ReportsController> {
                   )
                 : Column(
                     children: [
-                      Constants.Appbar(),
+                      Constants.Appbar_dashboard(),
                       // controller.OnClick_tile.value == false
                       //     ? SizedBox()
                       //     : Align(

@@ -1,0 +1,23 @@
+{
+    "piechart": {
+        "title": "Pie Chart",
+        "title_fontsize": 15.0,
+        "title_color": "",
+        "piechart_data": [
+            {
+                "label": "",
+                "total_percent": 40.0,
+                "growthPercent": 37.9,
+                "color": "",
+                "haveIncreased": false
+            },
+            {
+                "label": "",
+                "total_percent": 40.0,
+                "growthPercent": 37.9,
+                "color": "",
+                "haveIncreased": true
+            }
+        ]
+    }
+}

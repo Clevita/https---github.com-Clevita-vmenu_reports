@@ -1,9 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:vmenu_reports/app/modules/SalesWithTax_report/controllers/sales_with_tax_report_controller.dart';
+import 'package:vmenu_reports/app/modules/reports/model/model_reports_shopinfo_model.dart';
 
 import 'Colours.dart';
 import 'Fonts.dart';
@@ -110,7 +113,7 @@ class Constants {
     return value.toStringAsFixed(value.truncateToDouble() == value ? 0 : 2);
   }
 
-  static Appbar() {
+  static Appbar_dashboard() {
     ReportsController controller = Get.find();
     return Container(
       height: Constants.appbar_desktop_height,
@@ -205,6 +208,229 @@ class Constants {
     );
   }
 
+//  static Widget Appbar_navigationpage(){
+//    ReportsController reportsController=Get.find();
+//   //  SalesWithTaxReportController saleswithtaxcontroller=Get.find();
+//     return Row( children: [
+//       IconButton(onPressed: (){
+//         reportsController.mainpage.value=true;
+//         Get.back();
+//       }, icon: Icon(LineIcons.angleLeft,size: 30,color: ColorsApp.COLOR_PRIMARY_TEXT,)),
+//                     Container(
+//                       margin: const EdgeInsets.only(left: 20, right: 20),
+//                       height: 40,
+//                       width: 150,
+//                       child: TextFormField(
+//                           style: TextStyle(
+//                               fontWeight: FontWeight.w500,
+//                               fontSize: 14,
+//                               color: ColorsApp.COLOR_PRIMARY_TEXT,
+//                               fontFamily: Fonts.font_Montserrat),
+//                           textAlign: TextAlign.center,
+//                           onTap: () {
+//                             reportsController
+//                                     .txt_fromdate_controller.selection =
+//                                 TextSelection(
+//                                     baseOffset: 0,
+//                                     extentOffset: reportsController
+//                                         .txt_fromdate_controller.value.text.length);
+//                           },
+//                           autofocus: true,
+//                           controller:
+//                               reportsController.txt_fromdate_controller,
+//                           inputFormatters: [
+//                             FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9- ]')),
+//                           ],
+//                           decoration: InputDecoration(
+//                               contentPadding: const EdgeInsets.fromLTRB(5.0, 1.0, 5.0, 1.0),
+//                               focusedBorder: OutlineInputBorder(
+//                                   borderSide:
+//                                       BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40))),
+//                               labelText: "From Date".capitalize!,
+//                               labelStyle: TextStyle(
+//                                   fontStyle: FontStyle.italic,
+//                                   color: ColorsApp.COLOR_PRIMARY_TEXT,
+//                                   fontFamily: Fonts.font_Montserrat,
+//                                   fontSize: 14),
+//                               border: OutlineInputBorder(
+//                                 borderSide:
+//                                     BorderSide(color:ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),
+//                               ),
+//                               enabledBorder:  OutlineInputBorder(
+//                                   borderSide: BorderSide(
+//                                 width: 1,
+//                                 color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
+//                               )),
+//                               suffixIcon: IconButton(
+//                                   onPressed: () {
+//                                     saleswithtaxcontroller
+//                                         .fromdate(Get.context!);
+//                                   },
+//                                   icon:  Icon(
+//                                     LineIcons.calendarAlt,
+//                                     color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.80),
+//                                   )))),
+//                     ),
+//                     Container(
+//                       margin: const EdgeInsets.only(left: 20, right: 20),
+//                       height: 40,
+//                       width: 150,
+//                       child: TextFormField(
+//                           style: TextStyle(
+//                               fontWeight: FontWeight.w500,
+//                               fontSize: 14,
+//                               color: ColorsApp.COLOR_PRIMARY_TEXT,
+//                               fontFamily: Fonts.font_Montserrat),
+//                           textAlign: TextAlign.center,
+//                           onTap: () {
+//                             reportsController
+//                                     .txt_todate_controller.selection =
+//                                 TextSelection(
+//                                     baseOffset: 0,
+//                                     extentOffset: reportsController
+//                                         .txt_todate_controller.value.text.length);
+//                           },
+//                           autofocus: true,
+//                           controller: reportsController.txt_todate_controller,
+//                           inputFormatters: [
+//                             FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9- ]')),
+//                           ],
+//                           decoration: InputDecoration(
+//                               contentPadding: const EdgeInsets.fromLTRB(5.0, 1.0, 5.0, 1.0),
+//                               focusedBorder: OutlineInputBorder(
+//                                   borderSide:
+//                                       BorderSide(color: ColorsApp.COLOR_PRIMARY)),
+//                               labelText: " To Date".capitalize!,
+//                               labelStyle: TextStyle(
+//                                   fontStyle: FontStyle.italic,
+//                                   color: ColorsApp.COLOR_PRIMARY_TEXT,
+//                                   fontFamily: Fonts.font_Montserrat,
+//                                   fontSize: 14),
+//                               border: OutlineInputBorder(
+//                                 borderSide:
+//                                     BorderSide(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),
+//                               ),
+//                               enabledBorder:  OutlineInputBorder(
+//                                   borderSide: BorderSide(
+//                                 width: 1,
+//                                 color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
+//                               )),
+//                               suffixIcon: IconButton(
+//                                   onPressed: () {
+//                                     saleswithtaxcontroller.todate(Get.context!);
+//                                   },
+//                                   icon:  Icon(
+//                                     LineIcons.calendarAlt,
+//                                     color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.80),
+//                                   )))),
+//                     ),
+//                     Container(
+//                       margin: const EdgeInsets.only(left: 20, right: 20),
+//                       decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40))),
+//                       height: 40,
+//                     width: 180,
+//                       child: Obx(() =>
+//                           reportsController.model_ownerapp_shopinfodata.value ==
+//                                               null
+//                                           ? Center(
+//                                               child: CircularProgressIndicator(
+//                                                 color: ColorsApp.COLOR_PRIMARY,
+//                                                 strokeWidth: 0.7,
+//                                               ),
+//                                             ):
+              
+//                           DropdownButton<StoreList>(
+//                               icon: Icon(
+//                                 LineIcons.hotel,
+//                                 color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40),
+//                               ),
+//                               isExpanded: true,
+//                               alignment: Alignment.center,
+//                               padding: const EdgeInsets.all(2),
+//                               dropdownColor: ColorsApp.COLOR_PRIMARY,
+//                               style: TextStyle(
+//                                   fontFamily: Fonts.font_Montserrat,
+//                                   color: ColorsApp.COLOR_PRIMARY_TEXT),
+//                               borderRadius: BorderRadius.circular(10),
+//                               underline: const SizedBox(),
+//                               hint: Text(
+//                                   "${reportsController.model_ownerapp_shopinfodata.value!.datainfo![0].storeList![0].shopname}",style: TextStyle(color: ColorsApp.COLOR_PRIMARY_TEXT),),
+//                               // Text('Choose Outlet',style: TextStyle(color: ColorsApp.COLOR_SECONDARY_TEXT,fontSize: 14,fontFamily: Fonts.font_Montserrat),),
+//                               items:reportsController.model_ownerapp_shopinfodata
+//                                   .value!.datainfo![0].storeList!
+//                                   .map((item) {
+//                                 return DropdownMenuItem<StoreList>(
+//                                   alignment: Alignment.center,
+//                                   value: item,
+//                                   child: Text(item.shopname.toString()),
+//                                 );
+//                               }).toList(),
+//                               disabledHint: const Text("Can't select"),
+//                               onChanged: (newVal) {
+//                                 reportsController.dropdown_shoplist.value =
+//                                     newVal;
+//                                 reportsController.shoplist = {
+//                                   "shopname": newVal!.shopname,
+//                                   "db_name": newVal.shopdatabase
+//                                 };
+//                                 // print(saleswithtax_Controller.shoplist);
+//                               },
+//                               value:
+//                                   reportsController.dropdown_shoplist.value)),
+//                     ),
+//                     IconButton(
+//                         onPressed: () {
+//                           reportsController.SearchReports();
+//                           // saleswithtaxcontroller.GetData_SalesWithTax_report();
+//                         },
+//                         iconSize: 100,
+//                         color: ColorsApp.COLOR_PRIMARY,
+//                         icon: Container(decoration: BoxDecoration(border: Border.all(color: ColorsApp.COLOR_NIGHT_PRIMARY_TEXT.withOpacity(0.40)),color: ColorsApp.COLOR_PRIMARY),
+//                             height: 30,
+//                             width: 150,
+//                             // color: ColorsApp.COLOR_PRIMARY,
+//                             child: Center(
+//                                 child: Text(
+//                               "SEARCH",
+//                               style: TextStyle(
+//                                   color: ColorsApp.COLOR_PRIMARY_TEXT,
+//                                   fontSize: 14,
+//                                   fontFamily: Fonts.font_Montserrat),
+//                             )))),
+//                     Expanded(
+//                         child: Row(
+//                       crossAxisAlignment: CrossAxisAlignment.end,
+//                       mainAxisAlignment: MainAxisAlignment.end,
+//                       children: [
+//                         Constants.TooltipCustom(
+//                           messege: "PDF",
+//                           child: IconButton(
+//                               onPressed: () {
+//                                 reportsController.PdfReports();
+//                                 // saleswithtaxcontroller.exportDataGridToPdf();
+//                               },
+//                               icon: Icon(
+//                                 LineIcons.pdfFileAlt,
+//                                 color: ColorsApp.COLOR_PRIMARY,
+//                                 size: 30,
+//                               )),
+//                         ),
+//                         Constants.TooltipCustom(
+//                             messege: "excell",
+//                             child: IconButton(
+//                                 onPressed: () {
+//                                   saleswithtaxcontroller.exportDataGridToExcel();
+//                                 },
+//                                 icon: Icon(
+//                                   LineIcons.excelFileAlt,
+//                                   size: 30,
+//                                   color: ColorsApp.COLOR_PRIMARY,
+//                                 )))
+//                       ],
+//                     ))
+//                   ]);
+//  }
+
   static void SnakeBarshow(
       {SnackPosition? snackPosition,
       EdgeInsets? margin,
@@ -297,5 +523,9 @@ class Constants {
   }
 
   static String VMENU_REPORTS = "VMENU_REPORTS";
+  
+  // static DateAndDropdown() {
+  //   return 
+  // }
 
 }

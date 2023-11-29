@@ -1,0 +1,55 @@
+{
+    "bubble_data": {
+        "title": "Bubble Chart",
+        "title_fontsize": 15.0,
+        "bubbledata_list": [
+            {
+                "bubble_radius": 45.0,
+                "bubble_color": "",
+                "bubble_label": "30.0",
+                "bottom": 25.0,
+                "right": 0.0,
+                "top": 0.0,
+                "left": 0.0
+            },
+            {
+                "bubble_radius": 32.0,
+                "bubble_color": "",
+                "bubble_label": "10.0",
+                "bottom": 0.0,
+                "right": 0.0,
+                "top": 0.0,
+                "left": 0.0
+            },
+            {
+                "bubble_radius": 55.0,
+                "bubble_color": "",
+                "bubble_label": "60.0",
+                "bottom": 0.0,
+                "right": 0.0,
+                "top": 0.0,
+                "left": 65.0
+            }
+        ],
+        "platformdata_list": [
+            {
+                "platform_name": "Android",
+                "percentage": 60.0,
+                "backgroundcolor": "",
+                "foregroundcolor": ""
+            },
+            {
+                "platform_name": "IOS",
+                "percentage": 30.0,
+                "backgroundcolor": "",
+                "foregroundcolor": ""
+            },
+            {
+                "platform_name": "Web",
+                "percentage": 10.0,
+                "backgroundcolor": "",
+                "foregroundcolor": ""
+            }
+        ]
+    }
+}

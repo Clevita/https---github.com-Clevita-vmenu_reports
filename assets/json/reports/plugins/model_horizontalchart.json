@@ -1,0 +1,20 @@
+{"horizontal_chart":{
+    "title":"Age Horizontal Chart",
+    "title_color":"",
+    "title_fontsize":12.0,
+    "Male_data":[
+        {
+        "age":"65+",
+        "value":4.5
+    }],
+    "Female_data":[
+        {
+        "age":"65+",
+        "value":5.5
+    },
+    {
+        "age":"45-56",
+        "value":5.5
+    }
+]
+}}

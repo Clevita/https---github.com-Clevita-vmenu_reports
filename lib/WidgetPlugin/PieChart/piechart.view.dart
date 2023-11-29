@@ -20,7 +20,7 @@ piechart() {
   return Stack(
     alignment: Alignment.center,
     children: [
-      const PieChartWidget(),
+       PieChartWidget(),
       Container(
         width:
             piechartcontroller.model_piechart.value!.widgetData!.piechartRadius!+50,
@@ -109,19 +109,14 @@ piechart() {
   );
 }
 
-class PieChartWidget extends StatefulWidget {
-  const PieChartWidget({super.key});
-
+class PieChartWidget extends GetView {
+ PieChartWidget({super.key});
+  // int touchedIndex = -1;
   @override
-  State<StatefulWidget> createState() => PieChart2State();
-}
-
-class PieChart2State extends State {
-  int touchedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
+    return Obx(() => AspectRatio(
       aspectRatio: 1.0,
       child: AspectRatio(
         aspectRatio: 1,
@@ -129,16 +124,16 @@ class PieChart2State extends State {
           PieChartData(
             pieTouchData: PieTouchData(
               touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                setState(() {
+                // setState(() {
                   if (!event.isInterestedForInteractions ||
                       pieTouchResponse == null ||
                       pieTouchResponse.touchedSection == null) {
-                    touchedIndex = -1;
+                   piechartcontroller. touchedIndex.value = -1;
                     return;
                   }
-                  touchedIndex =
+                 piechartcontroller. touchedIndex.value =
                       pieTouchResponse.touchedSection!.touchedSectionIndex;
-                });
+                // });
               },
             ),
             borderData: FlBorderData(
@@ -153,13 +148,13 @@ class PieChart2State extends State {
           ),
         ),
       ),
-    );
+    ));
   }
 
   List<PieChartSectionData> showingSections(
       {required List<PichartSectionlist>? piechartsectionlist}) {
     return List.generate(piechartsectionlist!.length, (i) {
-      final isTouched = i == touchedIndex;
+      final isTouched = i == piechartcontroller.touchedIndex.value;
       // final radius = isTouched ? 30.0 : 20.0;
       final radius = isTouched
           ? piechartsectionlist[i].touchedRadius

@@ -1,7 +1,7 @@
+// ideal data need for graphchart2 eg is provided below the class 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
-
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:vmenu_reports/Fonts.dart';
@@ -23,13 +23,6 @@ class cardchart1 extends GetView {
   }
 }
 
-  // String _formatNumber(dynamic title) {
-  //   if (title.toString().length >= 10) {
-  //     return NumberFormat.compact().format(title);
-  //   } else {
-  //     return NumberFormat.decimalPattern().format(title).replaceAll(',', ' ');
-  //   }
-  // }
 
       _InformationBox({required CardData carddata}){
     return Container(
@@ -66,15 +59,16 @@ class cardchart1 extends GetView {
                 carddata.percentage!.decreaseIncrease= cardchart1_controller.show_incrementdecrement.value;
                 cardchart1_controller.model_cardchart.refresh();
               },
-                child: Icon(carddata!.showPercentage==false?null:
+                child: Icon(carddata.showPercentage==false?null:
                   carddata.percentage!.decreaseIncrease==true ? Icons.arrow_drop_up : Icons.arrow_drop_down,
                   size: 20,
-                  color: carddata.percentage!.decreaseIncrease==true ? Colors.green : Colors.red,
+                  color:cardchart1_controller.show_incrementdecrement.value==true|| carddata.percentage!.decreaseIncrease==true ? Colors.green : Colors.red,
                 ),
               ),
-              Text(carddata!.showPercentage==false?"":
+              Text(carddata.showPercentage==false?"":
                 carddata.percentage!.value.toString() + '%',
-                style: carddata.percentage!.decreaseIncrease==true
+                style: cardchart1_controller.show_incrementdecrement.value==true||
+                carddata.percentage!.decreaseIncrease==true
                     ? TextStyle(color: Colors.green,fontFamily: Fonts.font_Montserrat)
                     // TextStyles.myriadProSemiBold12Green
                     : TextStyle(color: Colors.red,fontFamily: Fonts.font_Montserrat)
@@ -88,4 +82,60 @@ class cardchart1 extends GetView {
       ),
     );
   }
-
+  // cardchart1_controller.Getdata(
+  //                         modelcardchart: ModelCardchart(
+  //                             cardchartData: CardchartData(
+  //                                 spacing: 2,
+  //                                 runspacing: 1,
+  //                                 iconCircleavatar:
+  //                                     IconCircleavatar(color: "#FFFFFF", radius: 15),
+  //                                 cardHeight: 80,
+  //                                 cardWidth: 180,
+  //                                 cardBackgrndclr:"#FFFFFF" ,
+  //                                 cardData: [
+  //                           CardData(
+  //                               title: "12345",
+  //                               icon: "assets/images/download.png",
+  //                               iconColor: "#FFFFFF",
+  //                               percentage: Percentage(
+  //                                   decreaseIncrease: true,
+  //                                   showtitlePercentage: true,
+  //                                   value: 50,
+  //                                   valueFontsize: 8),
+  //                               showPercentage: true,
+  //                               subtitle: "perfect",
+  //                               subtitleColor: "#000000",
+  //                               subtitleFontsize: 12,
+  //                               titleColor: "#000000",
+  //                               titleFontsize: 14),
+  //                                  CardData(
+  //                               title: "100",
+  //                               icon: "assets/images/images.png",
+  //                               iconColor: "0xFFFF3EF4",
+  //                               percentage: Percentage(
+  //                                   decreaseIncrease: true,
+  //                                   showtitlePercentage: true,
+  //                                   value: 23,
+  //                                   valueFontsize: 8),
+  //                               showPercentage: true,
+  //                               subtitle: "perfect",
+  //                               subtitleColor: "#000000",
+  //                               subtitleFontsize: 12,
+  //                               titleColor: "#000000",
+  //                               titleFontsize: 14),
+  //                                  CardData(
+  //                               title: "45",
+  //                               icon: "assets/images/bell.png",
+  //                               iconColor: "#000000",
+  //                               percentage: Percentage(
+  //                                   decreaseIncrease: true,
+  //                                   showtitlePercentage: true,
+  //                                   value: 10,
+  //                                   valueFontsize: 8),
+  //                               showPercentage: true,
+  //                               subtitle: "perfect",
+  //                               subtitleColor: "#000000",
+  //                               subtitleFontsize: 12,
+  //                               titleColor: "#000000",
+  //                               titleFontsize: 14),
+  //                         ])))
